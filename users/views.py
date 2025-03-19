@@ -200,13 +200,3 @@ def profile_user(request):
         return JsonResponse({"status": "success", "message": "Profile updated successfully!"})
 
     return render(request, "profile.html", {"user": user})
-
-
-from django.contrib.auth.hashers import make_password
-
-hashed_password = make_password("123456")
-print(hashed_password)
-hashed_password = make_password("123")
-print(hashed_password)
-hashed_password = make_password("test")
-print(hashed_password)

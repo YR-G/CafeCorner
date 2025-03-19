@@ -1,16 +1,13 @@
-
 import re
-
 import cloudinary
 from django.contrib import messages
-
 from django.db.models import Count
-
 from django.views.decorators.csrf import csrf_exempt
-
 from reviews.models import Review
 from users.models import CafeOwner
-
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from cafes.models import CafeShop
 
 def homepage(request):
     # Retrieve the top 3 cafes based on their average rating in descending order
@@ -148,9 +145,6 @@ def cafe_overview(request, cafe_id):
     return render(request, "overview.html", {"cafe": cafe, "reviews": reviews})
 
 
-from django.shortcuts import render
-
-
 @csrf_exempt
 def upload_cafe_image(request):
     # Check if the request method is POST and an image file is uploaded
@@ -187,11 +181,6 @@ def write_review(request, cafe_id):
     cafe = get_object_or_404(CafeShop, id=cafe_id)
     # Render the review page with the cafe details
     return render(request, "review.html", {"cafe": cafe})
-
-
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
-from cafes.models import CafeShop
 
 
 def search_cafe(request):

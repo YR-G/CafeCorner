@@ -28,7 +28,7 @@
                         {% endif %}
                         <div class="card-body">
                             <span class="cafe-name">{{ cafe.name }}</span>
-                            <span class="cafe-rating">{{ cafe.average_rating }}/5.0</span>
+                            <span class="cafe-rating">{{ cafe.average_rating | floatformat:1}}/5.0</span>
                         </div>
                     </a>
                 </div>

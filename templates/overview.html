@@ -18,7 +18,7 @@
             <div class="overlay-text">
                 <h1>{{ cafe.name }}</h1>
                 <div class="rating">
-                    <span class="rating-score">⭐{{ cafe.average_rating }}/5.00</span>
+                    <span class="rating-score">⭐{{ cafe.average_rating | floatformat:1 }}/5.0</span>
                     <span class="price-range">{{ cafe.price_range }}</span>
                 </div>
             </div>
