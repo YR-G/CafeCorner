@@ -1,0 +1,117 @@
+body {
+    background: url('/static/image/background.png') no-repeat center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.register-container {
+    display: flex;
+    margin-top: 3% !important;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.register-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.register-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6f4e37;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #6f4e37;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #6f4e37;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border: 1px solid #56392d;
+    box-shadow: 0 0 5px rgba(111, 78, 55, 0.5);
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background-color: #56392d;
+}
+
+.divider {
+    border: none;
+    border-top: 1px dashed #6f4e37;
+    margin: 20px 0;
+}
+
+.login-text {
+    font-size: 14px;
+    color: #a97c50;
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #6f4e37;
+    border-radius: 5px;
+    color: #6f4e37;
+    text-align: center;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background-color: #f0e6d2;
+}
+
+.user-type-options {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.user-type-options label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 5px;
+}
+

@@ -1,0 +1,81 @@
+body{
+    background: url('/static/image/background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.profile-container {
+    max-width: 50%;
+    margin: 5% auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+.profile-title {
+    color: #834921;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 15px;
+}
+.form-label {
+    font-weight: bold;
+}
+.form-text {
+    color: gray;
+    font-size: 0.9rem;
+}
+.info{
+    margin-left:15px;
+    margin-right: 20px;
+}
+.btns{
+    margin-top:40px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: #834921;
+    border: 2px solid #834921;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.btns:hover {
+    background-color: #834921;
+    color: white;
+}
+.profile-image {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    margin-right: 15px;
+}
+
+.edit-link {
+    font-size: 16px;
+    color: #333;
+}
+
+.edit-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.edit-link a:hover {
+    text-decoration: underline;
+}
+.profile-image label {
+    margin-right: 10px;
+}
+.back{
+    height: 0px !important;
+}

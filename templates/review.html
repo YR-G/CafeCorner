@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Review {% endblock %}
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'css/review.css' %}"> 
+{%  endblock %}
+{% block main %}
+        <!-- Review Section -->
+        <div class="review-container">
+            <div class="cafe-banner">
+                      {% if cafe.img_url %}
+                            <img src="{{ cafe.img_url }}" class="cafe-img" alt="{{ cafe.name }}">
+                        {% else %}
+                            <img src="{% static 'image/shop1.jpg' %}" class="cafe-img" alt="Default Cafe">
+                        {% endif %}
+            <div class="overlay-text">
+                <h1>{{ cafe.name }}</h1>
+            </div>
+        </div>
+            <form id="review-form" action="{% url 'reviews:get_reviews' cafe.id %}" method="post">
+                {% csrf_token %}
+                <label class="rating-label">My rating:</label>
+                <select name="rating" class="rating-dropdown">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div class="review">
+                    <label class="review-label" for="comment">What did you think?</label>
+                    <textarea id="comment" name="comment" placeholder="Enter your review"></textarea>
+                    <div class="button-container">
+                        <button type="submit" class="post-button" id="submit-review">Submit</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+    <script src="/static/javascript/review.js"></script>
+{% endblock %}

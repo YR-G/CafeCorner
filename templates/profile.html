@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} My Profile {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+{%  endblock %}
+{% block main %}
+    <!-- Profile Content -->
+        <div class="profile-container">
+          <div class="profile-box">
+              <h2 class="profile-title">Profile</h2>
+              <form id="profile-form" method="POST" action="{% url 'users:profile' %}">
+                {% csrf_token %}
+                <!-- First Name -->
+                <div class="input-group">
+                    <label for="firstname">First Name :</label>
+                    <input type="text" id="firstname" name="first_name" value="{{ user.first_name }}">
+                </div>
+                <!-- Last Name -->
+                <div class="input-group">
+                    <label for="lastname">Last Name :</label>
+                    <input type="text" id="lastname" name="last_name" value="{{ user.last_name }}">
+                </div>
+                <!-- Password -->
+                <div class="input-group">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your new password">
+                </div>
+                <!-- Email -->
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" value="{{ user.email }}" readonly>
+                </div>
+            </form>
+            <!-- buttons -->
+            <div class="d-flex gap-5 justify-content-center">
+                <button type="submit" class="btns" id="confirm-btn">Confirm</button>
+                <button type="button" class="btns" id="cancel-btn">Cancel</button>
+            </div>
+          </div>
+        </div>
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Profile updated successfully!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'javascript/profile.js' %}"></script>
+ {% endblock %}

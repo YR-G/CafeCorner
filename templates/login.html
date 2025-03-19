@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+{% endblock %}
+{% block main %} 
+    <!-- Login page container -->
+    <div class="login-container">
+        <div class="login-box">
+            <h2 class="login-title">Log In</h2>
+
+            <!-- Display messages if they exist -->
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        {% if "logged out" in message|lower %}  
+                            <div class="alert alert-info">{{ message }}</div>
+                        {% elif "login successful" in message|lower %} 
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Login form -->
+            <form method="POST" action="{% url 'users:login' %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.GET.next|default:'/' }}">
+
+                <!-- Email input field -->
+                <div class="input-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="">
+                </div>
+
+                <!-- Password input field -->
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="">
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+
+            <!-- Divider -->
+            <hr class="divider">
+
+            <!-- Registration link -->
+            <p class="register-text">New to Cafe Corner</p>
+            <a href="{% url 'users:register' %}" class="register-btn">Register</a>
+        </div>
+    </div>
+{% endblock %}

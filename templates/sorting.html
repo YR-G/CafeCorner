@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Cafes{% endblock %}
+
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'css/sorting.css' %}"> 
+{% endblock %}
+
+{% block main %} 
+    <div class="sorting-container">
+        <div class="sorting-controls">
+            <label for="filter-options" class="sorted-text">Sorted:</label>
+            <div class="custom-dropdown">
+                <select id="filter-options" class="filter-dropdown">
+                    <option value="rating" selected>Rating</option>
+                    <option value="price">Price</option>
+                    <option value="reviews">Reviews</option>
+                </select>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+
+            <div class="custom-dropdown">
+                <select id="sort-order" class="filter-dropdown">
+                    <option value="high-to-low" selected>From High to Low</option>
+                    <option value="low-to-high">From Low to High</option>
+                </select>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cafe shop list -->
+    <div class="cafe-list-container">
+        <div class="cafe-list" id="cafe-list">
+            {% for cafe in cafes %}
+                <a href="{% url 'cafes:cafe_overview' cafe_id=cafe.id %}" class="cafe-item-link">
+                    <div class="cafe-item">
+                        <img src="{{ cafe.img_url }}" class="cafe-img" alt="{{ cafe.name }}">
+                        <div class="cafe-info">
+                            <h2>{{ cafe.name }}</h2>
+                            <p class="rating"><strong>{{ cafe.average_rating }}</strong></p>
+                            <p><strong>Address:</strong> {{ cafe.address }}</p>
+                            <p><strong>Average Price:</strong> {{ cafe.price_range }} per person</p>
+                            <p><strong>Reviews:</strong> {{ cafe.reviews_count }}</p>
+                            <p><strong>Introduction:</strong> {{ cafe.introduction }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% empty %}
+                <div class="no-cafes-message">
+                    <h2>No cafes found.</h2>
+                    <p>Please check back later!</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{% static 'javascript/sorting.js' %}"></script>
+{% endblock %}

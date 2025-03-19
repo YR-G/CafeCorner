@@ -1,0 +1,133 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.sorting-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    background: white;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.sorting-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sorted-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6f4e37;
+}
+
+.custom-dropdown {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 2px solid #6f4e37;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: white;
+    font-family: inherit;
+    min-width: 180px;
+}
+
+.custom-dropdown select {
+    appearance: none;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #6f4e37;
+    width: 100%;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    color: #6f4e37;
+    pointer-events: none;
+}
+
+.custom-dropdown:hover {
+    border-color: #56392d;
+}
+
+.custom-dropdown select:focus {
+    outline: none;
+}
+
+.cafe-list-container {
+    width: 700px;
+    max-width: 900px;
+    margin: auto;
+    padding-right: 10px;
+    overflow-y: visible;
+}
+
+.cafe-item {
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 850px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.cafe-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cafe-img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 18px;
+}
+
+.cafe-info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cafe-info h2 {
+    margin-left: 0;
+    font-size: 30px;
+    color: #6f4e37;
+}
+
+.cafe-info p {
+    margin: 6px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.cafe-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.rating{
+    color: #f17f0e !important;
+    font-size: 20px !important;
+}

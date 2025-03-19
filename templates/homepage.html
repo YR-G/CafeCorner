@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Homepage {% endblock %}
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}"> 
+{%  endblock %}
+{% block main %} 
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <p class="title">Savor Coffee</p>
+            <p class="title">Share Joy
+                <img src="{% static 'image/coffee-icon.png' %}" class="coffee-icon">
+            </p>
+        </div>
+    </div>
+    <!-- Top Cafes Section -->
+    <div class="container text-center my-5 top-cafes">
+        <h2 class="mb-4">Top-Rated Cafés</h2>
+        <div class="row">
+            {% for cafe in top_cafes %}
+                <div class="col-md-4">
+                    <a class="card" href="{% url 'cafes:cafe_overview' cafe.id %}">
+                        {% if cafe.img_url %}
+                            <img src="{{ cafe.img_url }}" class="card-img-top" alt="{{ cafe.name }}">
+                        {% else %}
+                            <img src="{% static 'image/shop1.jpg' %}" class="card-img-top" alt="Default Cafe">
+                        {% endif %}
+                        <div class="card-body">
+                            <span class="cafe-name">{{ cafe.name }}</span>
+                            <span class="cafe-rating">{{ cafe.average_rating }}/5.0</span>
+                        </div>
+                    </a>
+                </div>
+            {% empty %}
+                <p>No cafes available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

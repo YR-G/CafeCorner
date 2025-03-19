@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Overview {% endblock %}
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'css/overview.css' %}"> 
+{%  endblock %}
+{% block main %}
+        <!-- content -->
+        <div class="container main-content">
+            {% if cafe %}
+        <!-- If Cafe exist -->
+        <div class="cafe-banner">
+            {% if cafe.img_url %}
+                <img src="{{ cafe.img_url }}" class="card-img-top" alt="{{ cafe.name }}">
+            {% else %}
+                <img src="{% static 'image/shop1.jpg' %}" class="card-img-top" alt="Default Cafe">
+            {% endif %}
+            <div class="overlay-text">
+                <h1>{{ cafe.name }}</h1>
+                <div class="rating">
+                    <span class="rating-score">⭐{{ cafe.average_rating }}/5.00</span>
+                    <span class="price-range">{{ cafe.price_range }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Introduction</h2>
+                <p>{{ cafe.introduction }}</p>
+                <div class="review-header">
+                    <h2>Reviews ({{ reviews|length }})</h2>
+                    <div class="written-container">
+                            <button class="write-review" id="write-review-btn"
+                                    data-url="{% url 'cafes:write_review' cafe.id %}"
+                                    data-login="{% if request.session.user_id %}true{% else %}false{% endif %}">
+                                Write a review
+                            </button>
+                    </div>
+                </div>
+
+                {% for review in reviews %}
+                <div class="review">
+                    <p><strong>{{ review.customer.first_name }}</strong> <span class="score">{{ review.rating }}</span></p>
+                    <p>{{ review.comment }}</p>
+                </div>
+                {% empty %}
+                <p>No reviews yet. Be the first to write one!</p>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-4">
+                <div class="location">
+                    <h2>Location</h2>
+                    <div id="map" class="map" data-postcode="{{ cafe.address }}"></div>
+                    <p><strong>Address:</strong> {{ cafe.address }}</p>
+                    <p><strong>Contact number:</strong> {{ cafe.contact }}</p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <!-- If cafe not exist -->
+        <div class="cafe-not-found">
+            <h2>Cafe not found.</h2>
+            <p>The cafe you are looking for does not exist or has been removed.</p>
+            <a href="{% url 'cafes:sorting' %}" class="btn btn-primary">Back to all cafes</a>
+        </div>
+    {% endif %}
+        </div>
+    <script src="{% static 'javascript/overview.js' %}"></script>
+    <!--  Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWWiC5ZYRmgv4IYu2LfS2st_7ktB-dXwc&&language=en&callback=initMap"></script>
+    
+{%  endblock %}

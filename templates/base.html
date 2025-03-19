@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="coffee-body">
+        <nav class="navbar navbar-expand-lg base-nav">
+            <!-- Navigation Bar -->
+            <a class="navbar-brand name" href="{% url 'cafes:homepage' %}">
+                <img src="{% static 'image/coffee_icon.png' %}" class="d-inline-block align-top">
+                Cafe Corner
+            </a>
+            <div class="container search">
+                <form id="search-form" class="d-flex">
+                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search cafe shop" aria-label="Search">
+                    <button id="search-button" class="btn" type="button">
+                        <img src="{% static 'image/search.png' %}" alt="Search">
+                    </button>
+                </form>
+                <div class="all-cafe">
+                    <a class="btn-shop" href="{% url 'cafes:sorting' %}">All cafe shops</a>
+                </div>
+                {% if request.session.user_id and request.session.username %}
+                    <div class="dropdown">
+                        <button class="btn btn-coffee dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hi, {{ request.session.username }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="{% url 'users:profile' %}">My Profile</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item" href="{% url 'users:logout' %}">Logout</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="buttons">
+                        <a class="btn-coffee" href=" {% url 'users:login' %}?next={{ request.path }}">Log In</a >
+                        <a class="btn-coffee" href="{% url 'users:register' %}">Sign Up</a>
+                    </div>
+                {% endif %}
+            </div>
+        </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search Result</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                No cafe found with this name. Please try again.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Content -->
+        {% block main %}{% endblock %}
+        <!-- Footer -->
+        <footer class="text-center py-4">
+            <a href="#" class="text footer">contact us</a>
+        </footer>
+    </div>
+    <script src="{% static 'javascript/base.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
