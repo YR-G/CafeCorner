@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                "db_table": "Cafe_Shop",
+                "db_table": "cafe_shop",
             },
         ),
     ]

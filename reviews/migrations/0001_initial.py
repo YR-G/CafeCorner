@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                "db_table": "Review",
+                "db_table": "review",
             },
         ),
     ]

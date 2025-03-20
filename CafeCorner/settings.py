@@ -153,11 +153,11 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# Cloudinary 配置
+# Cloudinary Settings
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": "dfk7crlez",  # 你的 Cloudinary 云名称
-    "API_KEY": "299735692388289",  # 你的 API Key
-    "API_SECRET": "feAGHPHnsu5yFWSOdjGkv1ir6tw"  # 你的 API Secret
+    "CLOUD_NAME": "dfk7crlez",
+    "API_KEY": "299735692388289",
+    "API_SECRET": "feAGHPHnsu5yFWSOdjGkv1ir6tw"
 }
 
 cloudinary.config(
@@ -168,3 +168,5 @@ cloudinary.config(
 )
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'

@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ("password", models.CharField(max_length=100)),
             ],
             options={
-                "db_table": "Administrator",
+                "db_table": "administrator",
             },
         ),
         migrations.CreateModel(
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ("password", models.CharField(max_length=100)),
             ],
             options={
-                "db_table": "Cafe_Owner",
+                "db_table": "cafe_owner",
             },
         ),
         migrations.CreateModel(
@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
                 ("password", models.CharField(max_length=100)),
             ],
             options={
-                "db_table": "Customer",
+                "db_table": "customer",
             },
         ),
     ]
