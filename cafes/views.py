@@ -1,7 +1,7 @@
 import re
 import cloudinary
 from django.contrib import messages
-from django.db.models import Count
+from django.db.models import Count, OuterRef, Subquery
 from django.views.decorators.csrf import csrf_exempt
 from reviews.models import Review
 from users.models import CafeOwner
@@ -204,9 +204,12 @@ def sorting(request):
     # Retrieve filter and order preferences from request parameters, with default values
     filter_by = request.GET.get("filter", "rating")
     order_by = request.GET.get("order", "high-to-low")
+    review_count_subquery = Review.objects.filter(cafe_id=OuterRef('id')).annotate(
+        count=Count('id')
+    ).values('count')[:1]
 
     # Annotate cafes with the number of reviews
-    cafes = CafeShop.objects.annotate(reviews_count=Count('review'))
+    cafes = CafeShop.objects.annotate(reviews_count=Subquery(review_count_subquery))
 
     # Define the sorting field based on the filter parameter
     sort_field = {
