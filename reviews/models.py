@@ -12,4 +12,4 @@ class Review(models.Model):
 
     class Meta:
         # Define the table name in the database
-        db_table = 'Review'
+        db_table = 'review'

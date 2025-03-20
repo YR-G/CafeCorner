@@ -31,4 +31,4 @@ class CafeShop(models.Model):
     img_url = models.URLField(max_length=500, null=True, blank=True)
 
     class Meta:
-        db_table = 'Cafe_Shop'
+        db_table = 'cafe_shop'

@@ -8,7 +8,7 @@ class Customer(models.Model):
     password = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'Customer'
+        db_table = 'customer'
 
 class CafeOwner(models.Model):
     id = models.AutoField(primary_key=True)
@@ -18,7 +18,7 @@ class CafeOwner(models.Model):
     password = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'Cafe_Owner'
+        db_table = 'cafe_owner'
 
 class Administrator(models.Model):
     id = models.AutoField(primary_key=True)
@@ -28,4 +28,4 @@ class Administrator(models.Model):
     password = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'Administrator'
+        db_table = 'administrator'

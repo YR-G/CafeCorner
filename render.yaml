@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: CafeCorner
+    env: python
+    buildCommand:
+      - pip install -r requirements.txt
+      - python manage.py collectstatic --noinput
+    startCommand: gunicorn your_project.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        value: mysql://your_user:your_password@your_host/your_database
+      - key: CLOUDINARY_CLOUD_NAME
+        value: your-cloudinary-name
+      - key: CLOUDINARY_API_KEY
+        value: your-cloudinary-api-key
+      - key: CLOUDINARY_API_SECRET
+        value: your-cloudinary-api-secret
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: DEBUG
+        value: False

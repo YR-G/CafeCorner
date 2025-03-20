@@ -84,17 +84,15 @@ WSGI_APPLICATION = "CafeCorner.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "CafeCorner",
-        "USER": "root",
-        "PASSWORD": "mysql123",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "cafecorner",
+        "USER": "cafecorner_user",
+        "PASSWORD": "fnfMb7YTLj6DSQEyhI1HXs8MhhDEji3w",
+        "HOST": "dpg-cvdlh45rie7s73em2f80-a.frankfurt-postgres.render.com",
+        "PORT": "5432",
     }
 }
+
 
 
 # Password validation
