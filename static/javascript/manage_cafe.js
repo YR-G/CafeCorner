@@ -56,40 +56,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Delete Cafe Shop Information
 document.addEventListener("DOMContentLoaded", function () {
-    let userIdToDelete;
-    let userIdentityToDelete;
+    let cafeIdToDelete;
+    let cafeNameToDelete;
 
     const deleteButtons = document.querySelectorAll(".delete-btn");
-    const confirmDeleteBtn = document.getElementById("confirmDeleteUserBtn");
+    const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+    const deleteCafeNameSpan = document.getElementById("cafeNameToDelete");
+    const deleteConfirmModal = document.getElementById("deleteConfirmModal");
+    const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+
+    if (!confirmDeleteBtn || !deleteCafeNameSpan || !deleteConfirmModal || !cancelDeleteBtn) {
+        console.error("One or more required elements are missing.");
+        return;
+    }
 
     deleteButtons.forEach(button => {
         button.addEventListener("click", function () {
-            userIdToDelete = this.dataset.id;
-            userIdentityToDelete = this.dataset.identity;
-            document.getElementById("delete-user-name").textContent = this.dataset.name;
+            cafeIdToDelete = this.dataset.id;
+            cafeNameToDelete = this.dataset.name;
+
+            if (cafeIdToDelete && cafeNameToDelete) {
+                deleteCafeNameSpan.textContent = cafeNameToDelete;
+                deleteConfirmModal.style.display = "block";
+            } else {
+                console.error("Missing cafe ID or name.");
+            }
         });
     });
 
     confirmDeleteBtn.addEventListener("click", function () {
-        fetch(`/cafes/delete_user/${userIdToDelete}/`, {
+        if (!cafeIdToDelete) {
+            console.error("Cafe ID is missing.");
+            return;
+        }
+
+        fetch(`/delete_cafe/${cafeIdToDelete}/`, {
             method: "DELETE",
             headers: {
                 "X-CSRFToken": getCookie("csrftoken"),
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ identity: userIdentityToDelete })
+            }
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text) });
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.status === "success") {
-                showCustomModal("Success", "User deleted successfully!", () => location.reload());
+                showCustomModal("Success", "Café deleted successfully!", () => location.reload());
             } else {
                 showCustomModal("Error", data.message);
             }
         })
         .catch(error => console.error("Error:", error));
     });
+
+    cancelDeleteBtn.addEventListener("click", function () {
+        deleteConfirmModal.style.display = "none";
+    });
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            document.cookie.split(";").forEach(cookie => {
+                let trimmedCookie = cookie.trim();
+                if (trimmedCookie.startsWith(name + "=")) {
+                    cookieValue = decodeURIComponent(trimmedCookie.substring(name.length + 1));
+                }
+            });
+        }
+        return cookieValue;
+    }
 });
+
+
 function showCustomModal(title, message, callback = null) {
     let modalHtml = `
         <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
@@ -117,3 +159,4 @@ function showCustomModal(title, message, callback = null) {
         if (callback) callback();
     });
 }
+
