@@ -1,0 +1,105 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: white;
+    color: #834921;
+    position: absolute;
+    overflow-y: auto;
+    border: 2px solid #834921;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar a {
+    display: flex;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+    color: #834921;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 2px solid #834921;
+}
+.sidebar a:hover, .sidebar a.active {
+    background: #FFF9ED;
+}
+.sidebar a i {
+    margin-right: 10px;
+}
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+.top-nav {
+    background: #FFF9ED;
+    color: #834921;
+    padding: 1.5%;
+    display: flex;
+    gap: 3%;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 2px solid #834921;
+}
+.top-nav .user-info {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+.top-nav a {
+    margin-right:100px;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.title{
+    font-size: 2rem;
+    color: #834921;
+}
+.search-name{
+    height:50px;
+    width: 30%;
+    margin: 20px;
+}
+.search-name image{
+    height: 45px;
+}
+.btn-info{
+    margin:10px;
+}
+.custom-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1000;
+    width: 300px;
+}
+
+.modal-content {
+    padding: 15px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.custom-modal.show {
+    display: block;
+}

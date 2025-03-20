@@ -1,0 +1,72 @@
+body {
+    background: url('/static/image/background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+}
+
+.profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #6f4e37;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #6f4e37;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #6f4e37;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border: 1px solid #56392d;
+    box-shadow: 0 0 5px rgba(111, 78, 55, 0.5);
+}
+
+.btns{
+    margin-top:40px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: #834921;
+    border: 2px solid #834921;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.btns:hover {
+    background-color: #834921;
+    color: white;
+}
+

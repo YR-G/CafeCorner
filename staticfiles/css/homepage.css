@@ -1,0 +1,68 @@
+.hero-section {
+    background: url("../image/background.png") center/cover no-repeat !important;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15%;
+    color: white;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 3px solid #d3a678;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.title{
+    font-size: 3.8rem;
+}
+
+.coffee-icon{
+    height: 90px;
+    width: 90px;
+}
+
+.top-cafes{
+    font-family: 'Poppins', sans-serif;
+    color: #834921;
+}
+.card{
+    text-decoration: none;
+    border: #834921 2px solid !important;
+    margin: 10px;
+    color: #583218 !important;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.card img {
+    height: 150px;
+    object-fit: cover;
+    border-bottom: #834921 2px solid;
+    margin-bottom: 5px;
+}
+.card-body{
+    margin: 5px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cafe-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6B3E26;
+    margin-right: 20px;
+}
+
+.cafe-rating {
+    font-size: 1.2rem;
+    color: #f17f0e;
+    font-weight: 500;
+}

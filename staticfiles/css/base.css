@@ -1,0 +1,131 @@
+.coffee-body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.buttons{
+    margin-right: 15%;
+}
+.navbar{
+    background: #FFF9ED !important;
+}
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.navbar-brand img {
+    width: 50px;
+    height: 50px;
+}
+
+.name {
+    color: #834921 !important;
+    font-weight: bold;
+    font-size: 2rem !important;
+}
+
+.search input {
+    width: 300px;
+}
+
+.btn-coffee {
+    text-decoration: none;
+    border: 2px solid #834921;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-left: 15px;
+    background-color: transparent;
+    color: #834921;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-coffee:hover {
+    background-color: #834921;
+    color: white;
+}
+
+.footer{
+    font-size: 1.2rem;
+}
+
+.btn img{
+    width:30px;
+    height:30px;
+}
+.dropdown{
+    position: absolute !important;
+    right: 20% !important;
+    }
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: #834921 !important;
+}
+.dropdown-menu {
+    margin-top: 10px !important;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px #834921;
+    color: #834921 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #FFF9ED;
+}
+
+.btn-shop {
+    text-decoration: none;
+    border: 2px solid #834921;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-left: 15px;
+    background-color: #834921;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-shop:hover {
+    background-color: transparent;
+    color: #834921;
+}
+.all-cafe{
+    position: absolute;
+    flex-shrink: 0;
+    margin-left:25%;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
